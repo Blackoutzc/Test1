@@ -1,0 +1,149 @@
+﻿<Window x:Class="Template.SearchWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Template"
+        mc:Ignorable="d"
+        Title="SearchWindow" 
+        Height="158.304" Width="456.442" Background="Black" 
+    ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+    AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+       >
+    <Window.Resources>
+        <LinearGradientBrush x:Key="TextBoxBorder" EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+            <GradientStop Color="#ABADB3" Offset="0.05"/>
+            <GradientStop Color="#E2E3EA" Offset="0.07"/>
+            <GradientStop Color="#E3E9EF" Offset="1"/>
+        </LinearGradientBrush>
+        <Style x:Key="TextBoxStyle1" BasedOn="{x:Null}" TargetType="{x:Type TextBox}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FF3D3D3D"/>
+            <Setter Property="BorderBrush" Value="#FF3D3D3D"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Background="{TemplateBinding Background}"  SnapsToDevicePixels="true">
+                            <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="true">
+                                <Setter Property="BorderBrush" Value="Blue"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="false">
+                                <Setter Property="BorderBrush" Value="#FF3D3D3D"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ButtonFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#F3F3F3" Offset="0"/>
+            <GradientStop Color="#EBEBEB" Offset="0.5"/>
+            <GradientStop Color="#DDDDDD" Offset="0.5"/>
+            <GradientStop Color="#CDCDCD" Offset="1"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
+        <SolidColorBrush x:Key="ButtonBorder" Color="BlueViolet"/>
+        <Style x:Key="ButtonStyleFind" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Background" Value="#FF3D3D3D"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Setter Property="Background" TargetName="Bd" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="BlueViolet"></Setter>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="Background" TargetName="Bd" Value="#FF5D5D5D"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="WhiteSmoke"/>
+                                <Setter Property="Background" Value="#FF5D5D5D"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" x:Name="TitleLabel" Background="Black" Style="{DynamicResource TitleLabel}" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" Content="查找">
+
+            </Label>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" >
+
+                <local:MinButton Margin="2.5,0" Click="MinButton_Click"/>
+                <local:CloseButton Margin="2.5,0" Click="CloseButton_Click" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="299*"/>
+                <ColumnDefinition Width="125*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Height="32" Margin="10,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" Grid.ColumnSpan="2" Style="{DynamicResource TextBoxStyle1}"/>
+            <Button x:Name="SearchButton" Content="Find" HorizontalAlignment="Left" Margin="30.36,22,0,0" VerticalAlignment="Top" Width="85" Height="32" Grid.Column="1" Style="{DynamicResource ButtonStyleFind}" Click="SearchButton_Click"/>
+            <TextBlock x:Name="SearchBlock" HorizontalAlignment="Left" Margin="10,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" Grid.ColumnSpan="2" Foreground="LightBlue" Text="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:SearchWindow}},Path=DisplayText,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <Button x:Name="SearchPre" Content="Pre" HorizontalAlignment="Left" Margin="61,90,0,0" VerticalAlignment="Top" Width="75"  Style="{StaticResource ButtonStyleFind}" Click="SearchPre_Click"/>
+            <Button x:Name="SearchNext" Grid.ColumnSpan="2" Content="Next" HorizontalAlignment="Left" Margin="273,90,0,0" VerticalAlignment="Top" Width="75" Click="SearchNext_Click" Style="{DynamicResource ButtonStyleFind}"/>
+
+        </Grid>
+    </Grid>
+</Window>

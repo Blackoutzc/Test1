@@ -1,0 +1,41 @@
+﻿<Button x:Class="Template.MinButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Template"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Width="25" Height="25">
+    <Button.Resources>
+        <Style TargetType="{x:Type local:MinButton}">
+            <Style.Resources>
+                <SolidColorBrush x:Key="PressedBrush" Color="Blue"/>
+                <SolidColorBrush x:Key="MouseOverBrush" Color="DarkGray"/>
+                <SolidColorBrush x:Key="NormalBrush" Color="Black"/>
+            </Style.Resources>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:MinButton}">
+                        <Grid>
+                            <Border BorderThickness="0"  x:Name="_border" Background="{StaticResource NormalBrush}">
+                                <Canvas x:Name="Layer_2"  Canvas.Left="0" Canvas.Top="0">
+                                    <Path x:Name="Line" Canvas.Left="6" Canvas.Top="15" Stretch="Fill" Width="13"  StrokeThickness="2" StrokeMiterLimit="2.75" Stroke="WhiteSmoke" Data="F1 M 7.33334,7.33334L 156.667,7.33334"/>
+                                </Canvas>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true" >
+                                <Setter TargetName="_border" Property="Background" Value="{StaticResource MouseOverBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="_border" Property="Background" Value="{StaticResource PressedBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Button.Resources>
+    <Grid>
+    </Grid>
+</Button>
