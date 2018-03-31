@@ -74,7 +74,7 @@
         <Grid Grid.Row="2">
             <ToolBarTray HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Background="WhiteSmoke" >
                 <ToolBar x:Name="toolbar" ToolBarTray.IsLocked="True"  HorizontalAlignment="Center" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center">
-                    <Button Command="Undo"  Margin="0,0,0,0.4" Width="37" BorderBrush="#FF4F4F4F" BorderThickness="0,0,1,0" Content="撤销" Style="{DynamicResource ButtonStyle2}"/>
+                    <Button Command="Undo"  Margin="0,0,0,0.8" Width="37" BorderBrush="#FF4F4F4F" BorderThickness="0,0,1,0" Content="撤销" Style="{DynamicResource ButtonStyle2}"/>
                     <Button  Command="Redo"  Margin="0,0,0,0.8" Width="37" BorderBrush="#FF403D3D" BorderThickness="0,0,1,0" Content="重做" Style="{DynamicResource ButtonStyle2}"/>
                     <Button  Command="EditingCommands.ToggleBold" Margin="0,0,0,0.8" Width="37" BorderBrush="#FF403D3D" BorderThickness="0,0,1,0" Content="Bold" Style="{DynamicResource ButtonStyle2}"/>
                     <Button  Command="EditingCommands.ToggleItalic" Margin="0,0,0,0.8" Width="37" BorderBrush="#FF403D3D" BorderThickness="0,0,1,0" Content="斜体" Style="{DynamicResource ButtonStyle2}"/>

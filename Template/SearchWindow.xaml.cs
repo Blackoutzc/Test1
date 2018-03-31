@@ -18,6 +18,7 @@ namespace Template
     /// <summary>
     /// SearchWindow.xaml 的交互逻辑
     /// </summary>
+    /// Make Sure SearchWindow has only one instance
     public partial class SearchWindow : Window, INotifyPropertyChanged
     {
         private static SearchWindow _instance = null;
