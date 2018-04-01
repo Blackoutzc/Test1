@@ -9,14 +9,17 @@
         Height="158.304" Width="456.442" Background="Black" 
     ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" WindowStyle="None" 
     AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown"
-       >
+       Style="{StaticResource SubWindowStyle}">
     <Window.Resources>
-        <LinearGradientBrush x:Key="TextBoxBorder" EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
-            <GradientStop Color="#ABADB3" Offset="0.05"/>
-            <GradientStop Color="#E2E3EA" Offset="0.07"/>
-            <GradientStop Color="#E3E9EF" Offset="1"/>
-        </LinearGradientBrush>
+       
         <Style x:Key="TextBoxStyle1" BasedOn="{x:Null}" TargetType="{x:Type TextBox}">
+            <Style.Resources>
+                <LinearGradientBrush x:Key="TextBoxBorder" EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                    <GradientStop Color="#ABADB3" Offset="0.05"/>
+                    <GradientStop Color="#E2E3EA" Offset="0.07"/>
+                    <GradientStop Color="#E3E9EF" Offset="1"/>
+                </LinearGradientBrush>
+            </Style.Resources>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="#FF3D3D3D"/>
             <Setter Property="BorderBrush" Value="#FF3D3D3D"/>
@@ -66,15 +69,18 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="#F3F3F3" Offset="0"/>
-            <GradientStop Color="#EBEBEB" Offset="0.5"/>
-            <GradientStop Color="#DDDDDD" Offset="0.5"/>
-            <GradientStop Color="#CDCDCD" Offset="1"/>
-        </LinearGradientBrush>
-        <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
-        <SolidColorBrush x:Key="ButtonBorder" Color="BlueViolet"/>
+        
         <Style x:Key="ButtonStyleFind" TargetType="{x:Type Button}">
+            <Style.Resources>
+                <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#F3F3F3" Offset="0"/>
+                    <GradientStop Color="#EBEBEB" Offset="0.5"/>
+                    <GradientStop Color="#DDDDDD" Offset="0.5"/>
+                    <GradientStop Color="#CDCDCD" Offset="1"/>
+                </LinearGradientBrush>
+                <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
+                <SolidColorBrush x:Key="ButtonBorder" Color="BlueViolet"/>
+            </Style.Resources>
             <Setter Property="Foreground" Value="WhiteSmoke"/>
             <Setter Property="Padding" Value="2"/>
             <Setter Property="BorderThickness" Value="2"/>
@@ -111,6 +117,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
     </Window.Resources>
     <Grid>
         

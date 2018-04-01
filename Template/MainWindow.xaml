@@ -48,7 +48,7 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
-            <Menu Background="#FF2C2C2C" Foreground="#FFD3C9C9" VerticalAlignment="Stretch" Padding="0,7" BorderThickness="0">
+            <Menu Background="#FF2C2C2C" Foreground="#FFD3C9C9" VerticalAlignment="Stretch" Padding="0,7" BorderBrush="Transparent">
                 <MenuItem x:Name="FileMenu" Header="文件(F)" Template="{DynamicResource MenuItemControlTemplate1}" Margin="5,0">
                     <MenuItem x:Name="OpenRaw" Header="打开原文件(O)" Background="Black" HorizontalAlignment="Left" Width="200"  Template="{DynamicResource MenuItemControlTemplate2}"/>
                     <MenuItem x:Name="OpenItem" Header="SNP引物自动设计" Background="Black" HorizontalAlignment="Left" Width="200"  Template="{DynamicResource MenuItemControlTemplate2}"/>

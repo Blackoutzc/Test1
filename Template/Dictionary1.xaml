@@ -395,4 +395,17 @@ BorderThickness="0" />
             <StaticResource ResourceKey="{x:Type TextBoxBase}"/>
         </Style.BasedOn>
     </Style>
+
+    <Style TargetType="{x:Type Window}" x:Key="SubWindowStyle">
+        <Setter Property="BorderBrush" Value="BlueViolet"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Style.Triggers>
+            <Trigger Property="IsActive" Value="false">
+                <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                <Setter Property="BorderThickness" Value="1"></Setter>
+                <Setter  Property="Foreground" Value="BlueViolet"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
 </ResourceDictionary>
